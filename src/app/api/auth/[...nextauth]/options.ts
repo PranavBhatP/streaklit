@@ -46,6 +46,18 @@ export const options:NextAuthOptions = {
         signIn: '/auth/login',  // Custom sign-in page
     },
     callbacks: {
+        async jwt({ token, user }) {
+            if (user) {
+                token.id = user.id;
+            }
+            return token;
+        },
+        async session({ session, token }) {
+            if (token.id) {
+                session.user.id = token.id;
+            }
+            return session;
+        }
         // async signIn({ user, account, profile }) {
         //     return '/dashboard'; // Return the URL as a string
         // }

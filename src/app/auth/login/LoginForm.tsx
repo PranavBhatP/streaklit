@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { redirect, useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
+import { signIn, getSession } from 'next-auth/react';
+import { Underdog } from 'next/font/google';
 
 interface LoginFormProps {
   csrfToken: string | undefined;
@@ -12,27 +13,31 @@ const LoginForm: React.FC<LoginFormProps> = ({ csrfToken }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState("");
-  const callbackUrl = "http://localhost:3000/api/auth/callback/credentials";
+  const router = useRouter(); 
+
   const handleSubmit = async (e: React.FormEvent) => {
     setError('');
     e.preventDefault();
-    console.log(email);
     try {
-      const result = await signIn('credentials', {
+      const response = await signIn('credentials', {
         redirect: false, // Disable automatic redirection
         email,
         password,
         csrfToken,
       });
-      if (result.error) {
-        // If there's an error during sign-in, set the error state with the error message
+      
+      if (response?.error) {
         setError("Invalid credentials!");
       } else {
-        window.location.href = '/dashboard';
+        const session = await getSession();
+        if (session?.user?.id) {
+          window.location.href = `/${session.user.id}/dashboard`;
+        } else {
+          throw new Error("User ID not found in session");
+        }
       }
     } catch (error) {
       console.error('Error during sign-in:', error);
-      // Handle any other unexpected errors
       setError('An unexpected error occurred');
     }
   };
