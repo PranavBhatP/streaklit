@@ -31,7 +31,7 @@ const RegisterForm: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center mt-48">
+    <div className="flex flex-col items-center justify-center mt-24">
       <div className="w-full p-20 space-y-8 bg-white rounded-lg shadow-lg">
         <h2 className="text-3xl font-bold text-center">Create Your Account</h2>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
