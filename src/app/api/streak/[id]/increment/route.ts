@@ -12,10 +12,20 @@ export async function PUT(request: Request, { params }: { params: { id: string }
     if (!streak) {
       return NextResponse.json({ message: 'Streak not found' }, { status: 404 });
     }
+    const today = new Date();
+    today.setHours(0,0,0,0);
 
-    streak.streakLength += 1;
-    await streak.save();
+    const lastIncrementedDate = new Date(streak.streakStartDate)
+    lastIncrementedDate.setHours(0,0,0,0);
 
+    if(lastIncrementedDate.getTime() !== today.getTime() && streak.streakLength > 0) {
+      streak.streakLength += 1;
+      streak.streakStartDate = today;
+      await streak.save();
+    } else if (lastIncrementedDate.getTime() !== today.getTime() || streak.streakLength == 0) {
+      streak.streakLength += 1;
+      await streak.save();
+    } 
     return NextResponse.json(streak, { status: 200 });
   } catch (error) {
     return NextResponse.json({ message: 'Server error', error }, { status: 500 });

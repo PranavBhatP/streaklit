@@ -13,7 +13,7 @@ type Props = {
 const StreakCard: React.FC<Props> = ({ streakId }) => {
   const [streak, setStreak] = useState<IStreak | null>(null);
   const [percentage, setPercentage] = useState<number>(0);
-
+  const [message, setMessage] = useState<string>('');
   useEffect(() => {
     const fetchStreak = async () => {
       try {
@@ -42,6 +42,11 @@ const StreakCard: React.FC<Props> = ({ streakId }) => {
       if (res.ok) {
         const updatedStreak = await res.json();
         setPercentage(updatedStreak.streakLength);
+        if(percentage >= updatedStreak.target) {
+          setMessage("Congrats! You've reached your goal!");
+        } else {
+          setMessage('Come back tomorrow to update your streak!')
+        }
       } else {
         console.error('Failed to increment streak length');
       }
@@ -82,7 +87,7 @@ const StreakCard: React.FC<Props> = ({ streakId }) => {
   } 
 
   return (
-    <div className="flex w-56 flex-col items-center justify-center h-60 border-2 border-red-400 rounded-lg shadow-2xl p-4">
+    <div className="flex w-56 flex-col items-center justify-center h-72 border-2 border-red-400 rounded-lg shadow-2xl p-4">
       <div className="flex w-full justify-between">
         <GrPowerReset
           onClick={handleReset}
@@ -112,6 +117,7 @@ const StreakCard: React.FC<Props> = ({ streakId }) => {
       >
         +
       </button>
+      <p className = "text-gray-400 text-xs text-center font-semibold">{message}</p>
     </div>
   );
 };

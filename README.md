@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Streak Tracker
 
-## Getting Started
+Streak Tracker is a web application designed to help users create and maintain streaks for their favorite websites. Users can set a target streak length, track their progress, and increment their streak length once per day.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Create Streaks**: Users can create streaks by providing the website URL, website name, and target streak length.
+- **Track Streaks**: Users can view their current streaks, including the progress towards their target.
+- **Increment Streaks**: Users can increment their streak length once per day by clicking a button.
+- **User Authentication**: Secure user authentication to manage individual user streaks.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technology Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend**: React with Next.js
+- **Backend**: Node.js with Next.js API routes
+- **Database**: MongoDB with Mongoose
+- **Styling**: Tailwind CSS
+- **Icons**: React Icons
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/PranavBhatP/streaklit.git
+    ```
+2. Navigate to the project directory:
+    ```sh
+    cd streaklit
+    ```
+3. Install dependencies:
+    ```sh
+    npm install
+    ```
+4. Set up environment variables:
+    Create a `.env.local` file in the root directory and add your MongoDB connection string and other necessary environment variables.
+    1. JWT_SECRET
+    2. NEXTAUTH_URL
+    3. NEXTAUTH_SECRET
+    4. JWT_SECRET
+    5. DATABASE_URI (provided by MongoDB Atlas)
 
-To learn more about Next.js, take a look at the following resources:
+5. Run the development server:
+    ```sh
+    npm run dev
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Navigate to the application in your browser.
+- Sign up or log in to your account.
+- Use the sidebar to create a new streak.
+- Track your progress and increment your streak daily.
 
-## Deploy on Vercel
+## API Endpoints
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Create Streak**: `POST /api/streak`
+- **Delete Streak**: `DELETE /api/streak/[id]`
+- **Increment Streak**: `PUT /api/streak/[id]/increment`
+- **Get Streak**: `GET /api/streak/[id]`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contributing
+
+Contributions are welcome! Please submit a pull request or open an issue for any changes or improvements.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any questions or suggestions, please contact [your-email@example.com](mailto:your-email@example.com).
+
