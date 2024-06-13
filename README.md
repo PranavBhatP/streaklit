@@ -61,6 +61,10 @@ Streak Tracker is a web application designed to help users create and maintain s
 ## Contributing
 
 Contributions are welcome! Please submit a pull request or open an issue for any changes or improvements.
+Here is a list of upcoming features for this project you can contribute to:
+- Building a chrome extension to automatically track website visits, rather than having the user manually enter data.
+- Feature where user can save all his/her online achievement data such as images of certificates or screenshots as proof. Provides a location to consolidate this data, allowing users to produce them at will, when required.
+- 
 
 ## License
 
@@ -68,5 +72,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-For any questions or suggestions, please contact [your-email@example.com](mailto:your-email@example.com).
+For any questions or suggestions, please contact this [Email](mailto:pranavbhat2004@gmail.com).
 
