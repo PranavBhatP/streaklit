@@ -1,4 +1,4 @@
-# Streak Tracker
+# StreakLit - A modern-day web streak tracker app.
 
 Streak Tracker is a web application designed to help users create and maintain streaks for their favorite websites. Users can set a target streak length, track their progress, and increment their streak length once per day.
 
