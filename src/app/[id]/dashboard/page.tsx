@@ -11,6 +11,8 @@ import ReactTooltip from 'react-tooltip';
 import {Bars} from 'react-loading-icons'
 import { IStreak } from '@/model/Streak';
 import {Types} from 'mongoose';
+import { Metadata } from 'next';
+import Image from 'next/image';
 
 
 const DashboardPage = ({ params }: { params: { id: string } }) => {
@@ -47,7 +49,7 @@ const DashboardPage = ({ params }: { params: { id: string } }) => {
   };
 
   if (!user) {
-    return <Bars stroke="#F87171" strokeOpacity={.125}/>;
+    return <p className = "h-screen w-full flex items-center text-center justify-center text-black text-5xl font-bold">Loading...</p>;
   }
   function shiftDate(date: Date, numDays: number) {
     const newDate = new Date(date);
@@ -67,7 +69,8 @@ const DashboardPage = ({ params }: { params: { id: string } }) => {
     <div className="flex">
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} userId = { userId }/>
       <div className={`flex-1 p-4 transition-all duration-300 ease-in-out ${isSidebarOpen ? 'lg:ml-64'  : 'ml-0'}`}>
-      <h1 className="lg:text-5xl sm: text-2xl text-xl w-3/5 font-bold mt-10 border-b-2 border-red-400">Hey there, {user?.username}</h1>
+        <Image src = "/profile.png" alt = "Pfp" width={100} height={100} className="hover:drop-shadow-image"/>
+        <h1 className="lg:text-5xl sm: text-2xl text-xl w-1/2 font-bold mt-10 border-b-2 border-red-400">Hey there, {user?.username} </h1>
       <div className="mt-1 flex gap-y-5 flex-col border-b py-6">
         {/* Add your dashboard content here */}
         <h3 className = "text-2xl font-semibold">Your activity</h3>

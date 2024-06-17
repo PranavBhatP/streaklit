@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { FaBars, FaTimes, FaPlus, FaDownload, FaSignOutAlt } from 'react-icons/fa';
 import Link from 'next/link';
 import Modal from './Modal';
+import Image from 'next/image';
+import { FaPerson, FaWebflow } from 'react-icons/fa6';
 
 type SidebarProps = {
   isOpen: boolean;
@@ -58,6 +60,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar, userId }) => {
           <Link href="/download-extension" className="flex items-center px-4 py-2 mt-2 text-sm text-gray-200 hover:bg-gray-700 hover:text-white transition-colors duration-200">
             <FaDownload className="mr-3" />
             Download Extension
+          </Link>
+          <Link href={`/${userId}/userDetails`} className="flex items-center px-4 py-2 mt-2 text-sm text-gray-200 hover:bg-gray-700 hover:text-white transition-colors duration-200">
+            <FaPerson className="mr-3" />
+            User Information
           </Link>
         </nav>
         <div className="absolute bottom-0 w-full">
