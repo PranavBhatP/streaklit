@@ -1,0 +1,21 @@
+{
+    "name": "Streaklit Tracker",
+    "version": "0.1.0",
+    "description": "Boost productivity, with Streaklit Tracker.",
+    "permissions": ["activeTab","storage","scripting","tabs","http://localhost:3000"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches":[],
+            "js": ["contentScript.js"]
+
+        }
+    ],
+    "action": {
+        "default_popup": "popup/index.html"
+    },
+    "default_title": "Streaklit Tracker",
+    "manifest_version": 3
+}

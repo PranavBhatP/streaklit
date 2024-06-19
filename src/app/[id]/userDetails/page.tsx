@@ -75,25 +75,20 @@ export default function Page({ params }: { params: { id: string } }) {
     }
 
     return (
-        <main className="flex h-screen w-full m-100 items-center justify-center">
-            <div className='w-3/5 flex lg:flex-row flex-col items-center justify-center p-10 border-gray-300 rounded-lg border-2'>
-                <section className='flex flex-col lg:h-96 h-auto w-1/4 lg:border-r-2 lg:border-red-400 justify-between'>
-                    <div className="flex flex-col">
+        <main className="flex h-screen w-full lg:m-100 items-center justify-center">
+            <div className='lg:w-3/5 sm:w-full flex lg:flex-row flex-col items-center justify-center p-10 border-gray-300 rounded-lg border-2'>
+                <section className='flex flex-col lg:h-96 h-auto lg:w-1/4 sm:w-full sm:justify-center lg:border-r-2 lg:border-red-400 justify-between'>
+                    <div className="flex flex-col justify-center items-center w-full">
                         <Link href = {`/${userId}/dashboard`}>
-                            <Image src="/profile.png" width={100} height={100} alt="profile picture" />
+                            <Image src="/profile.png" width={100} height={100} alt="profile picture"/>
                         </Link>
-                        <h4 className="text-lg font-semibold text-gray-600">{user?.username}</h4>
-                        <h4 className="text-lg font-semibold text-gray-600">{user?.email}</h4>
+                        <h4 className="text-lg font-semibold text-gray-600 text-center">{user?.username}</h4>
+                        {/* <h4 className="text-lg font-semibold text-gray-600 text-center">{user?.email}</h4> */}
                     </div>
                     <div className="flex flex-col">
                         <button 
-                            onClick={handleSubmit} 
-                            className="flex items-center w-4/5 px-4 py-2 mt-2 text-white text-sm bg-red-400 rounded-lg hover:bg-gray-200 hover:text-red-400 transition-colors duration-200">
-                            Save
-                        </button>
-                        <button 
                             onClick={handleDeleteAccount} 
-                            className="lg:flex hidden items-center w-4/5 px-4 py-2 mt-2 text-white text-sm bg-red-400 rounded-lg hover:bg-gray-200 hover:text-red-400 transition-colors duration-200">
+                            className="lg:flex hidden items-center w-4/5 px-4 py-2 mt-16 text-white text-sm bg-red-400 rounded-lg hover:bg-gray-200 hover:text-red-400 transition-colors duration-200">
                             Delete Account
                         </button>
                     </div>

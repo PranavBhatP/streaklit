@@ -28,7 +28,7 @@ export const options:NextAuthOptions = {
                     console.log("Missing user");
                     return null;
                 } // Return null if user not found
-                console.log(user);
+                //console.log(user);
                 // Use a method like comparePassword to check the provided password against the hashed password
                 const passwordMatch = await bcrypt.compare(credentials.password, user.password);
             
