@@ -9,10 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@uploadthing/react": "^6.6.0",
     "axios": "^1.7.2",
     "bcryptjs": "^2.4.3",
+    "dayjs": "^1.11.11",
+    "formidable": "^3.5.1",
+    "imgur": "^2.4.2",
+    "imgur-client": "^2.0.0",
     "mongodb": "^6.7.0",
     "mongoose": "^8.4.1",
+    "multer": "^1.4.4",
+    "multer-gridfs-storage": "^5.0.2",
     "next": "14.2.3",
     "next-auth": "^4.24.7",
     "react": "^18",
@@ -23,7 +30,8 @@
     "react-loading-icons": "^1.1.0",
     "react-responsive-carousel": "^3.2.23",
     "react-tooltip": "^5.26.4",
-    "swiper": "^11.1.4"
+    "swiper": "^11.1.4",
+    "uploadthing": "^6.12.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",

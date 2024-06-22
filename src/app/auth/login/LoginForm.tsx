@@ -94,7 +94,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ csrfToken }) => {
           <div className="flex flex-col items-center justify-between">
             <div className="text-sm">
               <Link href="/auth/register" className="font-medium text-red-500 hover:text-red-700">
-                Don't have an account? Sign up
+                Don&apos;t have an account? Sign up
               </Link>
             </div>
             {/* <div className="text-sm">

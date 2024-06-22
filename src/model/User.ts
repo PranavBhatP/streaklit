@@ -5,6 +5,7 @@ export interface IUser extends Document {
   email: string;
   password: string;
   streaks: Types.ObjectId[];
+  images: string[];
 }
 
 const UserSchema = new Schema<IUser>({
@@ -15,6 +16,7 @@ const UserSchema = new Schema<IUser>({
     type: Schema.Types.ObjectId,
     ref: 'Streak',
   }],
+  images: [{ type: String }]
 });
 
 export default models.User ?? model('User', UserSchema);

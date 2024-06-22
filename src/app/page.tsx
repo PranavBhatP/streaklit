@@ -38,11 +38,11 @@ const Home: React.FC = () => {
             <br />
             All it takes is Streaklit.
           </p>
-          <Link href="/" className="bg-red-400 text-black rounded-lg p-3 font-bold mt-4 hover:text-red-500 hover:bg-transparent hover:ring-2 hover:ring-red-500">Get Started!</Link>
+          <Link href="/" className="bg-red-400 text-black rounded-lg p-3 font-bold mt-4 hover:text-red-500 hover:bg-transparent hover:ring-2 hover:ring-red-500 transistion-opacity duration-300">Get Started!</Link>
           <Image src="/image1.jpg" alt="Description of image" width={600} height={600} />
         </div>
         <div className="flex flex-col items-center justify-center w-3/5 gap-y-3 border-b">
-          <p className="font-bold text-sm text-center text-gray-400">TRACK PROGRESS</p>
+          <p className="font-bold text-sm text-center text-gray-400">TRACK PROGRESS*</p>
           <h1 className="flex text-6xl font-bold text-center">Use our in-house Chrome Extension to track web visits!</h1>
           <p className="text-center font-bold text-gray-700">
             Use our trustworthy and powerful Chrome extension to record your streaks.
@@ -50,7 +50,7 @@ const Home: React.FC = () => {
           <Image src="/image5.jpg" alt="Description of image" width={500} height={500} />
         </div>
         <div id="features" className="flex flex-col items-center justify-center w-3/5 gap-y-5">
-          <p className="font-bold text-sm text-center text-gray-400">FEATURES</p>
+          <p className="font-bold text-sm text-center text-gray-400">FEATURES*</p>
           <h1 className="flex text-6xl font-bold text-center">View Visit Analytics and Streak Data!</h1>
           <p className="text-center font-bold text-gray-700">
             View graphs. Avail streak data and reports.

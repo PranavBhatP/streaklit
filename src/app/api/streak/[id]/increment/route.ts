@@ -14,16 +14,19 @@ export async function PUT(request: Request, { params }: { params: { id: string }
     }
     const today = new Date();
     today.setHours(0,0,0,0);
-
+    console.log(today);
     const lastIncrementedDate = new Date(streak.streakStartDate)
     lastIncrementedDate.setHours(0,0,0,0);
 
     if(lastIncrementedDate.getTime() !== today.getTime() && streak.streakLength > 0) {
       streak.streakLength += 1;
       streak.streakStartDate = today;
+      console.log(streak.streakStartDate);
       await streak.save();
     } else if (lastIncrementedDate.getTime() !== today.getTime() || streak.streakLength == 0) {
       streak.streakLength += 1;
+      streak.streakStartDate = today;
+      console.log(streak.streakStartDate);
       await streak.save();
     } 
     return NextResponse.json(streak, { status: 200 });

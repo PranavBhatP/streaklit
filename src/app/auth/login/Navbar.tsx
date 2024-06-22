@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaFire } from "react-icons/fa6";
+import { FaFire } from "react-icons/fa";
 import { Kanit } from 'next/font/google';
 import Link from 'next/link';
 const kanit = Kanit({
@@ -18,7 +18,7 @@ function Navbar({}: Props) {
             </Link>
         </div>
         <div className = "flex items-center gap-x-5">
-            <Link href = '/auth/register' className = "rounded-lg font-bold text-black p-2 ring-2 ring-red-400">Sign Up</Link>
+            <Link href = '/auth/register' className = "rounded-lg font-bold text-black p-2 bg-red-400 hover:ring-2 hover:ring-red-400">Sign Up</Link>
         </div>
     </nav>
   )

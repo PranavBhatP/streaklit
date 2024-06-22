@@ -5,7 +5,7 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { IStreak } from '@/model/Streak';
 import { Types } from 'mongoose';
-
+import dayjs from 'dayjs';
 type Props = {
   streakId: Types.ObjectId; // Assuming streakId is of type ObjectId
 };
@@ -21,7 +21,15 @@ const StreakCard: React.FC<Props> = ({ streakId }) => {
         if (res.ok) {
           const data = await res.json();
           setStreak(data);
-          setPercentage(data?.streakLength || 0);
+          setPercentage(data.streakLength || 0);
+          const streakStartDate = dayjs(data.streakStartDate);
+          const currentDate = dayjs();
+          const differenceInDays = currentDate.diff(streakStartDate, 'day');
+
+          if (differenceInDays > 1) {
+            await handleReset();
+          }
+          
         } else {
           console.error('Failed to fetch streak data');
         }
@@ -56,7 +64,7 @@ const StreakCard: React.FC<Props> = ({ streakId }) => {
   };
 
   const handleReset = async () => {
-    setPercentage(0);
+    //setPercentage(0);
     try {
       const res = await fetch(`/api/streak/${streakId}/reset`, {
         method: 'PUT',
@@ -64,6 +72,7 @@ const StreakCard: React.FC<Props> = ({ streakId }) => {
       if (res.ok) {
         const updatedStreak = await res.json();
         setPercentage(updatedStreak.streakLength);
+        setStreak(updatedStreak);
       } else {
         console.error('Failed to reset streak length');
       }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaFire } from "react-icons/fa6";
+import { FaFire } from "react-icons/fa";
 import { Kanit } from 'next/font/google';
 import Link from 'next/link';
 const kanit = Kanit({

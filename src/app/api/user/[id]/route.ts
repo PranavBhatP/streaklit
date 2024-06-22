@@ -41,3 +41,24 @@ export async function DELETE(request: Request, { params } : {params: { id: strin
         return NextResponse.json({ message: "Server error", err }, { status: 500 });
     }
 }
+
+export async function POST(request: Request, { params } : {params: { id: string}}) {
+    try {
+        const { imageKey } = await request.json();
+        if (!imageKey) {
+            return NextResponse.json({ message: "Image key is required" }, { status: 400 });
+        }
+
+        const user = await User.findById(params.id);
+        if (!user) {
+            return NextResponse.json({ message: "User not found" }, { status: 404 });
+        }
+
+        user.images.push(imageKey);
+        await user.save();
+
+        return NextResponse.json(user, { status: 200 });
+    } catch (err) {
+        return NextResponse.json({ message: "Server error", err }, { status: 500 });
+    }
+}

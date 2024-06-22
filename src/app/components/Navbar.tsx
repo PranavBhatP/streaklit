@@ -32,7 +32,7 @@ function Navbar({}: Props) {
       </div>
       <div className="flex items-center gap-x-5 hidden sm:flex">
         <Link href="/auth/login" className="font-bold">Login</Link>
-        <Link href="/auth/register" className="rounded-lg font-bold text-red-500 p-2 ring-2 ring-red-500">Sign Up</Link>
+        <Link href="/auth/register" className="bg-red-400 text-black rounded-lg p-2 font-bold hover:text-black hover:bg-transparent hover:ring-2 hover:ring-red-500 transistion-opacity duration-300">Sign Up</Link>
       </div>
       <div className="sm:hidden">
         <FaBars className="text-2xl cursor-pointer" onClick={toggleMenu} />
