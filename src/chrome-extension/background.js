@@ -1,26 +1,22 @@
 chrome.runtime.onInstalled.addListener(() => {
-    console.log('Extension Installed');
-    updateContentScriptMatches();
+  chrome.storage.local.set({ visits: [] });
 });
 
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    if (changeInfo.status === 'complete' && tab.url) {
-      chrome.storage.sync.get('userId', async (data) => {
-        const userId = data.userId;
-        if (userId) {
-          try {
-            const response = await fetch(`http://localhost:3000/api/${userId}`);
-            const data = await response.json();
-            if (data.urls && data.urls.some(url => new URL(tab.url).hostname === new URL(url).hostname)) {
-              chrome.scripting.executeScript({
-                target: { tabId: tabId },
-                files: ['content-script.js']
-              });
-            }
-          } catch (error) {
-            console.error('Failed to fetch URLs', error);
-          }
-        }
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === 'logVisit') {
+    const visit = {
+      url: request.url,
+      time: new Date().toISOString()
+    };
+
+    chrome.storage.local.get('visits', (data) => {
+      const visits = data.visits || [];
+      visits.push(visit);
+      chrome.storage.local.set({ visits }, () => {
+        sendResponse({ status: 'success' });
       });
-    }
-  });
+    });
+
+    return true; // Indicates that the response will be sent asynchronously
+  }
+});

@@ -38,7 +38,7 @@ const Home: React.FC = () => {
             <br />
             All it takes is Streaklit.
           </p>
-          <Link href="/" className="bg-red-400 text-black rounded-lg p-3 font-bold mt-4 hover:text-red-500 hover:bg-transparent hover:ring-2 hover:ring-red-500 transistion-opacity duration-300">Get Started!</Link>
+          <Link href="/auth/login" className="bg-red-400 text-black rounded-lg p-3 font-bold mt-4 hover:text-red-500 hover:bg-transparent hover:ring-2 hover:ring-red-500 transistion-opacity duration-300">Get Started!</Link>
           <Image src="/image1.jpg" alt="Description of image" width={600} height={600} />
         </div>
         <div className="flex flex-col items-center justify-center w-3/5 gap-y-3 border-b">

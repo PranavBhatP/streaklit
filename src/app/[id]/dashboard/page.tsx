@@ -43,7 +43,13 @@ const DashboardPage = ({ params }: { params: { id: string } }) => {
   };
 
   if (!user) {
-    return <p className="h-screen w-full flex items-center text-center justify-center text-black text-5xl font-bold">Loading...</p>;
+    return (
+      <div className="h-screen w-full flex items-center justify-center">
+      <p className="text-4xl font-bold animated-gradient-text">
+        Loading...
+      </p>
+    </div>
+    );
   }
 
   return (
@@ -54,8 +60,13 @@ const DashboardPage = ({ params }: { params: { id: string } }) => {
         <h1 className="lg:text-5xl sm:text-2xl text-xl w-1/2 font-bold mt-10 border-b-2 border-red-400">Hey there, {user?.username} </h1>
         <div className="mt-1 flex gap-y-5 flex-col border-b py-6">
           <h3 className="text-2xl font-semibold">Your activity</h3>
-          <div className="flex w-full border-b-4 items-center justify-center border-red-400 shadow-2xl rounded-xl h-96 ">
-            <h1>Activity here!</h1>
+          <div className ="flex flex-wrap w-full justify-between">
+            <div className="flex  flex-col w-2/5 border-b-4 items-center border-red-400 shadow-2xl rounded-xl h-96 ">
+              <h1>Today's progress</h1>
+            </div>
+            <div className="flex flex-col w-2/5 border-b-4 items-center border-red-400 shadow-2xl rounded-xl h-96 ">
+              <h1>Overall progress</h1>
+            </div>
           </div>
         </div>
         <div className="mt-1 flex flex-col gap-y-5 border-b py-6">

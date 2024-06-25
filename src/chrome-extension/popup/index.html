@@ -1,35 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Streak Tracker</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      width: 200px;
-    }
-    input {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 10px;
-    }
-    button {
-      width: 100%;
-      padding: 8px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-  </style>
+  <title>Web Activity Tracker</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <h1>Streak Tracker</h1>
-  <input type="text" id="userId" placeholder="Enter User ID">
-  <button id="saveUserId">Save User ID</button>
+  <h1>Streaklit - Visit Track</h1>
+  <p>Keep your visits tacked on this extension, and add your visits into the streaklit dashboard at the end of the day!.</p>
+  <button id="logVisit">Log Current Visit</button>
+  <ul id="visitList"></ul>
   <script src="index.js"></script>
 </body>
 </html>

@@ -19,3 +19,27 @@
   transform: scale(0.9); /* Adjust the scale as needed */
   transform-origin: top left;
 }
+
+@keyframes gradientText {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-text {
+  background: linear-gradient(270deg, #ff0000, #ff4444, #ff8888, #ffcccc);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientText 3s ease infinite;
+}
+
+
+
