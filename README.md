@@ -64,9 +64,9 @@ Streak Tracker is a web application designed to help users create and maintain s
 
 Contributions are welcome! Please submit a pull request or open an issue for any changes or improvements.
 Here is a list of upcoming features for this project you can contribute to:
-- Building a chrome extension to automatically track website visits, rather than having the user manually enter data.
-- Feature where user can save all his/her online achievement data such as images of certificates or screenshots as proof. Provides a location to consolidate this data, allowing users to produce them at will, when required.
-- An activity calendar heatmap to display streak data. (Work in progress).
+- [X] Building a chrome extension to automatically track website visits, rather than having the user manually enter data.
+- [X] Feature where user can save all his/her online achievement data such as images of certificates or screenshots as proof. Provides a location to consolidate this data, allowing users to produce them at will, when required.
+- [ ] An activity calendar heatmap to display streak data. (Work in progress).
 
 ## License
 

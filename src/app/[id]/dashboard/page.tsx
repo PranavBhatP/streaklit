@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
 import StreakCard from './StreakCard';
@@ -10,10 +10,12 @@ import { Types } from 'mongoose';
 import Image from 'next/image';
 import { OurUploadButton } from './UploadButton';
 import DownloadableImage from './DownloadbleImage';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import ProgressCard from './ProgressCard';
 
 const DashboardPage = ({ params }: { params: { id: string } }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [streakList, setStreakList] = useState<any>([]);
+  const [streakList, setStreakList] = useState<any[]>([]);
   const { data: session, status } = useSession();
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -45,10 +47,10 @@ const DashboardPage = ({ params }: { params: { id: string } }) => {
   if (!user) {
     return (
       <div className="h-screen w-full flex items-center justify-center">
-      <p className="text-4xl font-bold animated-gradient-text">
-        Loading...
-      </p>
-    </div>
+        <p className="text-4xl font-bold animated-gradient-text">
+          Loading...
+        </p>
+      </div>
     );
   }
 
@@ -60,12 +62,12 @@ const DashboardPage = ({ params }: { params: { id: string } }) => {
         <h1 className="lg:text-5xl sm:text-2xl text-xl w-1/2 font-bold mt-10 border-b-2 border-red-400">Hey there, {user?.username} </h1>
         <div className="mt-1 flex gap-y-5 flex-col border-b py-6">
           <h3 className="text-2xl font-semibold">Your activity</h3>
-          <div className ="flex flex-wrap w-full justify-between">
+          <div className="flex flex-wrap w-full justify-between">
             <div className="flex  flex-col w-2/5 border-b-4 items-center border-red-400 shadow-2xl rounded-xl h-96 ">
               <h1>Today's progress</h1>
             </div>
-            <div className="flex flex-col w-2/5 border-b-4 items-center border-red-400 shadow-2xl rounded-xl h-96 ">
-              <h1>Overall progress</h1>
+            <div className="flex flex-col w-2/5 border-b-4 py-2 items-center border-red-400 shadow-2xl rounded-xl h-96 ">
+              <ProgressCard streakIdList={streakList} />
             </div>
           </div>
         </div>
@@ -81,9 +83,9 @@ const DashboardPage = ({ params }: { params: { id: string } }) => {
         <div className="mt-1 flex flex-col gap-y-5 border-b py-6">
           <h3 className="text-2xl font-semibold">Your Milestones</h3>
           {imageList.length > 0 ? (
-            <div className = "flex flex-col mx-auto items-center justify-center gap-2">
+            <div className="flex flex-col mx-auto items-center justify-center gap-2">
               {imageList.map((imageUrl, index) => (
-                <DownloadableImage key  ={index} imageUrl={imageUrl} alt = {`image${index}`}/>
+                <DownloadableImage key={index} imageUrl={imageUrl} alt={`image${index}`} />
               ))}
             </div>
           ) : (
