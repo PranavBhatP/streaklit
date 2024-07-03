@@ -2,6 +2,8 @@
 
 Streak Tracker is a web application designed to help users create and maintain streaks for their favorite websites. Users can set a target streak length, track their progress, and increment their streak length once per day.
 
+Video Link: [YouTube] (https://www.youtube.com/watch?v=1iD5E9Tgo6Q)
+
 ## Features
 
 - **Create Streaks**: Users can create streaks by providing the website URL, website name, and target streak length.
