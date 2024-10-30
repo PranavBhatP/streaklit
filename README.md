@@ -69,6 +69,7 @@ Here is a list of upcoming features for this project you can contribute to:
 - [X] Building a chrome extension to automatically track website visits, rather than having the user manually enter data.
 - [X] Feature where user can save all his/her online achievement data such as images of certificates or screenshots as proof. Provides a location to consolidate this data, allowing users to produce them at will, when required.
 - [ ] An activity calendar heatmap to display streak data. (Work in progress).
+- [ ] Containarize the application using Docker.
 
 ## License
 
